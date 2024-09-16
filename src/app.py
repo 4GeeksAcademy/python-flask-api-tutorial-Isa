@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 
-todos = [ { "label": "My first task", "done": False } ]
+todos = [ 
+    { "label": "My first task", "done": False },
+    { "label": "My second task", "done": False }  
+]
 
 @app.route('/todos', methods=['GET'])
 def hello_world():
@@ -21,10 +24,6 @@ def delete_todo(position):
     todos.pop(position)
     
     return jsonify(todos)
-
-@app.route('/todos')
-def hello_world():
-    return '<h1>Hello!</h1>'
 
 # These two lines should always be at the end of your app.py file
 if __name__ == '__main__':
